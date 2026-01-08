@@ -46,12 +46,14 @@ To use these packages:
 - Use `if opt is Pattern(v) { ... }` for single-branch matching, not `match opt {}`
 - Use `arr.clear()` not `while arr.length() > 0 { arr.pop() }`
 - Use `s.code_unit_at(i)` or `for c in s` not `s[i]` (deprecated)
-- Use `pub(all) enum` not factory functions for simple enums
-- Use `pub` not `pub(all)` when the constructor should not be exported 
-- Use default access control (without `pub`) for types and `pub` constructor functions if necessary
+- Struct/enum visibility: `priv` (hidden) < (none)/abstract (type only) < `pub` (readonly) < `pub(all)` (full)
+- Default to abstract (no modifier) for internal types; use `pub struct` when external code reads fields
+- Use `pub(all) enum` for enums that external code pattern-matches on
 - Use `let mut` only for reassignment, not for mutable containers like Array
 - Use `reinterpret_as_uint()` for unsigned ops, `to_int()` for numeric conversion
 - Use `Array::length()` not `Array::size()`
+- In moon.pkg.json, use "import", "test-import" and "wbtest-import" to manage package importing for ".mbt", "_test.mbt" and "_wbtest.mbt"
+- Use `Option::unwrap_or` not `Option::or`
 
 ## Parser Style Reference
 
